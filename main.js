@@ -9,13 +9,11 @@ var app = new Vue({
     videos: [
       {
         show: true,
-        delete: false,
         title: "Happier",
         url: "https://www.youtube.com/embed/iWZmdoY1aTE"
       },
       {
         show: false,
-        delete: false,
         title: "Happier - Chorus no controls",
         url: "https://www.youtube.com/embed/iWZmdoY1aTE?controls=0&amp;start=55"
       }
@@ -34,9 +32,9 @@ var app = new Vue({
     },
     delVideo: function(url) {
       console.log("Deleting video");
-      for (let video of this.videos) {
-        if (video.url == url) {
-          this.videos.splice(video, 1);
+      for (var idx in this.videos) {
+        if (this.videos[idx].url == url) {
+          this.videos.splice(idx, 1);
         }
       }
     }
